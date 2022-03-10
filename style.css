@@ -1,0 +1,468 @@
+html {
+    font-size: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: hsl(0, 0%, 98%);
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.bg-pattern {
+    width: 99%;
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    z-index: -1;
+}
+
+.bg-pattern > img {
+    width: 101%;
+    min-height: 12rem;
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    color: white;
+    z-index: 5;
+    font-weight: 700;
+    position: absolute;
+    top: 2rem;
+    left: 1.5rem;
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+.icon-moon, .icon-sun {
+    position: absolute;
+    top: 2.2rem;
+    right: 1.6rem;
+}
+
+.new-todo {
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: hsl(0, 0%, 100%);
+    position: relative;
+    top: 0.7rem;
+    left: 2.5rem;
+    z-index: 6;
+}
+
+.input-box {
+    width: calc(100% - 47px);
+    min-height: 3em;
+    padding: 0.2rem 0.3rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: hsl(0, 0%, 100%);
+    position: absolute;
+    top: 7.5rem;
+    left: 1.5rem;
+    z-index: 4;
+}
+
+
+
+
+.list-item, .list-item-2 {
+    width: 100%;
+    min-height: 2rem;
+    padding: 0;
+    padding-top: 0.5rem;
+    border: none;
+    background-color: hsl(0, 0%, 100%);
+    list-style: none;
+    margin: 0;
+    position: relative;
+}
+
+.list-item:first-child {
+    padding-top: 0;
+}
+
+.list-item-2:first-child {
+    padding-top: 0;
+}
+
+.list-item::after {
+    content: "";
+    display: block;
+    width: calc(100% + 35px);
+    height: 1px;
+    background-color: hsl(0, 0%, 98%);
+    margin: 0;
+    margin-left: -2.5rem;
+}
+
+.list-item-2::after {
+    content: "";
+    display: block;
+    width: calc(100% + 35px);
+    height: 1px;
+    background-color: hsl(234, 11%, 52%);
+    margin: 0;
+    margin-left: -2.5rem;
+}
+
+
+/* radio style */
+.radio-input {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 0.7rem;
+    position: absolute;
+    top: 0.9rem;
+    left: 1rem;
+    z-index: 10;
+}
+
+.true-radioBtn {
+    display: none;
+}
+
+.radio__style, .radio__style-2 {
+    width: 1.2em;
+    height: 1.2em;
+    border: 1px solid hsl(233, 11%, 84%);
+    border-radius: 50%;
+    background-color: hsl(0, 0%,100%);
+}
+
+.radio__style::after {
+    content: '';
+    width: 1.2em;
+    height: 1.2em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: linear-gradient(125deg, hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+    transform: scale(0); 
+}
+
+.radio__style-2::after {
+    content: '';
+    width: 1.2em;
+    height: 1.2em;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: linear-gradient(125deg, hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+    transform: scale(0); 
+}
+
+
+
+.true-radioBtn:checked + .radio__style::after {
+    transform: scale(1); 
+}
+
+
+
+.icon-check {
+    position: absolute;
+    top: 0.35rem;
+    left: 0.25rem;
+    z-index: 10;
+    visibility: hidden;
+}
+
+.list {
+    position: absolute;
+    top: 10.5rem;
+    left: 1.5rem;
+    width: calc(100% - 47px);
+    display: none;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    border-radius: 5px;
+    border: none;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.tasks {
+    display: none;
+    justify-content: space-between;
+    width: 80%;
+    position: relative;
+    top: -0.7rem;
+    left: 2rem;
+    font-size: 0.8rem;
+    margin: 0;
+    padding-bottom: 0.3rem;
+    padding-top: 0.5rem;
+    color:  hsl(233, 11%, 84%);
+    font-weight: 700;
+}
+
+.tasks > p:first-child {
+    margin-left: -1rem;
+}
+
+.tasks > p:last-child {
+    position: absolute;
+    top: 0.5rem;
+    left: calc(100% - 100px);
+    white-space: nowrap;
+   
+}
+
+.tasks > p {
+    margin: 0;
+}
+
+.sorted-tasks{
+    width: calc(100% - 47px);
+    display: none;
+    justify-content: center;
+    background-color: hsl(0,0%,100%);
+    border-radius: 5px;
+    border: none;
+    color:  hsl(233, 11%, 84%);
+    font-weight: 700;
+    position: absolute;
+    top: 12.8rem;
+    left: 1.5rem;
+    
+}
+
+.sorted-tasks > p {
+    margin-left: 1.2rem;
+}
+
+.current-tasks {
+    color: hsl(220, 98%, 61%); 
+}
+
+.hover-light-theme {
+    color: hsl(235, 19%, 35%);
+}
+
+.hover-dark-theme {
+    color: hsl(0,100%, 100%);
+}
+
+.icon-cross {
+    position: relative;
+    top: 0.25rem;
+    left: calc(100% - 45px);
+    transform: scale(0.8);
+    z-index: 10;
+}
+
+.text-list-position {
+    position: relative;
+    top:  -1rem;
+    left: 0.5rem;
+    margin: 0;
+}
+
+.list-radio-position {
+    position: absolute;
+    top: 0.7rem;
+    left: -1.5rem;
+}
+
+.list-item:first-child > .list-radio-position {
+    position: absolute;
+    top: 0.3rem;
+    left: -1.5rem;
+}
+
+.task-completed {
+    color: hsl(233, 11%, 84%);
+    text-decoration: line-through;
+}
+
+
+
+p {
+    
+    font-size: 0.8rem;
+}
+
+.drag-drop {
+    color: hsl(234, 11%, 52%);
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+   
+}
+
+.drag-div {
+    width: 50rem;
+    position: relative;
+    bottom: -45rem;
+    left: 52rem;
+
+}
+
+/* dark mode */
+
+.dark-body {
+    background-color:hsl(235, 21%, 11%);
+}
+ 
+.dark-list {
+    background-color:hsl(235, 24%, 19%);
+    color: hsl(0,0%,100%);
+}
+    
+.dark-input {
+    background-color:hsl(235, 24%, 19%);
+    color: hsl(0,0%,100%);
+}
+
+.dark-sorted-list {
+    background-color:hsl(235, 24%, 19%);
+}
+
+.dark-radio-btn {
+    background-color:hsl(235, 24%, 19%);
+    border: 1px solid hsl(233, 14%, 35%);
+}
+
+.dark-font {
+    color: hsl(234, 11%, 52%);
+}
+
+/*media*/
+@media all and (min-width: 600px) {
+    .input-box,  .list, .sorted-tasks {
+        width: 30rem;
+        left: 4.5rem;
+        
+    }
+
+    h2 {
+        left: 4.5rem;
+    }
+
+    .icon-moon, .icon-sun { 
+        left: 33rem;
+    }
+    
+    
+   .tasks > p:last-child { 
+    left: 19.8rem;
+}
+
+.bg-pattern > img {
+    width: 101%;
+    height: 23rem;
+}
+
+.drag-div {
+    left: 13rem;
+
+}
+
+}
+
+@media all and (min-width: 840px) {
+
+    .input-box, .list, .sorted-tasks {
+        width: 33rem;
+        left: 7.5rem;
+        
+    }
+
+    h2 {
+        left: 7.5rem;
+    }
+
+    .icon-moon, .icon-sun { 
+        left: 39rem;
+    }
+    
+    
+   .tasks > p:last-child { 
+    left: 22.8rem;
+}
+    .tasks > p:last-child { 
+    z-index: 10;
+    }
+    .text-list-position {
+     width: 10rem;
+ }
+
+    .text-list-position:hover {
+     cursor: pointer;
+ }
+ .clear-list, .sorted-tasks > p {
+    cursor: pointer;
+}
+
+.drag-div {
+    left: 20rem;
+
+}
+}
+
+@media all and (min-width: 1600px) {
+    .input-box, .list {
+        left: 42.5rem;
+        
+    }
+
+    h2 {
+        left: 42.5rem;
+    }
+
+    .icon-moon, .icon-sun { 
+        left: 74rem;
+    }
+    .sorted-tasks {
+       left: 40.75rem;
+       background-color: transparent;
+    }
+
+    .drag-div {
+        left: 52rem;
+    
+    }
+
+   
+}
+
+@media all and (min-width: 1400px) and (max-width: 1600px) {
+
+    .input-box, .list {
+        left: 28.5rem;
+        
+    }
+
+    h2 {
+        left: 28.5rem;
+    }
+
+    .icon-moon, .icon-sun { 
+        left: 60rem;
+    }
+    .sorted-tasks {
+       background-color: transparent;
+       left: 26.75rem;
+    }
+
+    .drag-div {
+        left: 42rem;
+    }
+
+}
